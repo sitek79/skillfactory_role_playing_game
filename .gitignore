@@ -1,1 +1,5 @@
-"# skillfactory_role_playing_game" 
+*.class
+*.jar
+*.iml
+target
+.idea
