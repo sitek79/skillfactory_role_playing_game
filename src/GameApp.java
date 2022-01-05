@@ -1,4 +1,5 @@
 import player.Player;
+import player.Team;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -38,15 +39,29 @@ public class GameApp {
                 System.out.println("3");
                 play = false;
                 Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
-                
+                Team team = new Team(player);
+                //System.out.println(team.player.getName());
+                //System.out.println(team.player.getDexterity());
+                //System.out.println(team.player.getHealth());
+                //System.out.println(team.player.getExperience());
+                //System.out.println(team.player.getGold());
+                //System.out.println(team.player.getStrength());
+                //System.out.println(team.player.getLevel());
+                // получаем параметры персонажа
+                String name = team.player.getName();
+                int dexterity = team.player.getDexterity();
+                int health = team.player.getHealth();
+                int exp = team.player.getExperience();
+                long gold = team.player.getGold();
+                int strength = team.player.getStrength();
+                int level = team.player.getLevel();
+                //System.out.printf("Name: %s  Age: %d  Dexterity: %.2f \n", name, dexterity, health, expe);
+                System.out.printf("Name: %s  Dexterity: %d  Health: %d  Experience: %d  Gold: %d  Strength: %d  Level: %d  \n", name, dexterity, health, exp, gold, strength, level);
                 break;
+            default:
+                throw new IllegalStateException("Неожиданное значение: " + num);
         }
 
-        // получаем параметры персонажа
-        String name = "Tom";
-        int age = 30;
-        float height = 1.7f;
-        System.out.printf("Name: %s  Age: %d  Height: %.2f \n", name, age, height);
         play = true;
     }
 

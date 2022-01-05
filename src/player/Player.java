@@ -16,9 +16,39 @@ public class Player {
         this.health=health;
         this.experience=experience;
         this.gold=gold;
+        this.strength=strength;
+        this.level=level;
     }
 
     int attack() {
         return health-strength;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDexterity() {
+        return this.dexterity;
+    }
+
+    public int getHealth() {
+        return this.health;
+    }
+
+    public int getExperience() {
+        return this.experience;
+    }
+
+    public long getGold() {
+        return this.gold;
+    }
+
+    public int getStrength() {
+        return this.strength;
+    }
+
+    public int getLevel() {
+        return this.level;
     }
 }
