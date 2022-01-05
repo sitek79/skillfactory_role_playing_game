@@ -1,4 +1,4 @@
-1. player settings
-2. system settings
-3. play
-4. exit
+1. создать игрока
+2. загрузить игру
+3. счет игры
+4. Выход

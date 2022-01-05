@@ -1,3 +1,4 @@
+import player.Band;
 import player.Player;
 import player.Team;
 
@@ -36,25 +37,17 @@ public class GameApp {
                 break;
 
             case 3:
-                System.out.println("3");
                 play = false;
                 Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
-                Team team = new Team(player);
-                //System.out.println(team.player.getName());
-                //System.out.println(team.player.getDexterity());
-                //System.out.println(team.player.getHealth());
-                //System.out.println(team.player.getExperience());
-                //System.out.println(team.player.getGold());
-                //System.out.println(team.player.getStrength());
-                //System.out.println(team.player.getLevel());
+                Band band = new Band(player);
                 // получаем параметры персонажа
-                String name = team.player.getName();
-                int dexterity = team.player.getDexterity();
-                int health = team.player.getHealth();
-                int exp = team.player.getExperience();
-                long gold = team.player.getGold();
-                int strength = team.player.getStrength();
-                int level = team.player.getLevel();
+                String name = band.player.getName();
+                int dexterity = band.player.getDexterity();
+                int health = band.player.getHealth();
+                int exp = band.player.getExperience();
+                long gold = band.player.getGold();
+                int strength = band.player.getStrength();
+                int level = band.player.getLevel();
                 //System.out.printf("Name: %s  Age: %d  Dexterity: %.2f \n", name, dexterity, health, expe);
                 System.out.printf("Name: %s  Dexterity: %d  Health: %d  Experience: %d  Gold: %d  Strength: %d  Level: %d  \n", name, dexterity, health, exp, gold, strength, level);
                 break;
