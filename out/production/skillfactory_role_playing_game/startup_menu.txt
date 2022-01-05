@@ -1,0 +1,4 @@
+1. settings
+2. info
+3. start
+4. exit
