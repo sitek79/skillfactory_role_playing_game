@@ -38,6 +38,9 @@ public class GameApp {
 
             case 3:
                 play = false;
+                // прочитаем файл конфигурации созданного персонажа
+
+                // построим экземпляр класса
                 Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
                 Band band = new Band(player);
                 // получаем параметры персонажа

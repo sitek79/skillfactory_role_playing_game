@@ -8,7 +8,7 @@ public class Player {
     private long gold;
     private int strength;
 
-    private int level;
+    private int level = 1;
 
     public Player(String name, int dexterity, int health, int experience, long gold, int strength, int level) {
         this.name = name;
@@ -25,7 +25,8 @@ public class Player {
     }
 
     public String getName() {
-        return this.name;
+        if (name.length()>25) return "Имя слишком длинное!";
+        else return this.name;
     }
 
     public int getDexterity() {
