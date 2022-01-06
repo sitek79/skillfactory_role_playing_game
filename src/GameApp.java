@@ -5,7 +5,9 @@ import player.Team;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.MissingFormatArgumentException;
 import java.util.Scanner;
+import java.util.UnknownFormatConversionException;
 
 public class GameApp {
     static boolean play = true;
@@ -39,9 +41,26 @@ public class GameApp {
             case 3:
                 play = false;
                 // прочитаем файл конфигурации созданного персонажа
+                try {
+                    new FilePropertiesManager().getNameF();
+                } catch (MissingFormatArgumentException e) {
+                    e.printStackTrace();
+                } catch (UnknownFormatConversionException e) {
+                    e.printStackTrace();
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 // построим экземпляр класса
-                Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
+                try {
+                    Player player = new Player(new FilePropertiesManager().getNameF(), 10, 10, 10, 10, 10, 10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
                 Band band = new Band(player);
                 // получаем параметры персонажа
                 String name = band.player.getName();
