@@ -53,15 +53,15 @@ public class GameApp {
                     e.printStackTrace();
                 }
 
+                //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
                 // построим экземпляр класса
                 try {
                     Player player = new Player(new FilePropertiesManager().getNameF(), 10, 10, 10, 10, 10, 10);
+                    Band band = new Band(player);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
-                Band band = new Band(player);
                 // получаем параметры персонажа
                 String name = band.player.getName();
                 int dexterity = band.player.getDexterity();
