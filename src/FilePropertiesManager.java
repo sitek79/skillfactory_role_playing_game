@@ -4,31 +4,30 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class FilePropertiesManager {
-    private static String name = "";
-    private static int dexterity;
-    private static int health;
-    private static int experience;
-    private static long gold;
-    private static int strength;
-    private static int level;
-    private Properties props;
+    private String name = "";
+    private int dexterity;
+    private int health;
+    private int experience;
+    private long gold;
+    private int strength;
+    private int level;
+
+    Properties props = new Properties();
 
     //private static int[] SOME_INT_ARRAY;
-
     
     public FilePropertiesManager() throws IOException {
-        Properties props = new Properties();
         props.load(new FileInputStream(new File("src/save_game.cfg")));
 
         //name = Integer.valueOf(props.getProperty("SOME_INT_VALUE", "nnm"));
-        name = String.valueOf(props.getProperty("name", "nnm"));
+        this.name = String.valueOf(props.getProperty("name", "nnm"));
         //dexterity = props.getProperty("SOME_STRING_VALUE");
-        dexterity = Integer.parseInt(props.getProperty("dexterity"));
-        health = Integer.parseInt(props.getProperty("health"));
-        experience = Integer.parseInt(props.getProperty("experience"));
+        this.dexterity = Integer.parseInt(props.getProperty("dexterity"));
+        this.health = Integer.parseInt(props.getProperty("health"));
+        this.experience = Integer.parseInt(props.getProperty("experience"));
         gold = Long.parseLong(props.getProperty("gold"));
-        strength = Integer.parseInt(props.getProperty("strength"));
-        level = Integer.parseInt(props.getProperty("level"));
+        this.strength = Integer.parseInt(props.getProperty("strength"));
+        this.level = Integer.parseInt(props.getProperty("level"));
         //SOME_DOUBLE_VALUE = Double.valueOf(props.getProperty("SOME_DOUBLE_VALUE", "1.0"));
 
         // Предположим, что в настройках находится список целых через точку с запятой
@@ -41,7 +40,7 @@ public class FilePropertiesManager {
 
     public String getNameF() {
         name = String.valueOf(props.getProperty("name", "nnm"));
-        return this.name;
+        return name;
     }
     
     public void getAllProps() {

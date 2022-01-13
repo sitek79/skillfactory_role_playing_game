@@ -1,6 +1,5 @@
 import player.Band;
 import player.Player;
-import player.Team;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,8 +13,8 @@ public class GameApp {
     static String filePathToMenu = "src/startup_menu.txt";
 
     public static void main(String[] args) {
-        //GameApp ga = new GameApp();
 
+        //GameApp ga = new GameApp();
         String input = "Консольная стратегия. ";
         System.out.println(input + "Игровое Меню.");
 
@@ -41,37 +40,35 @@ public class GameApp {
             case 3:
                 play = false;
                 // прочитаем файл конфигурации созданного персонажа
-                try {
-                    new FilePropertiesManager().getNameF();
-                } catch (MissingFormatArgumentException e) {
-                    e.printStackTrace();
-                } catch (UnknownFormatConversionException e) {
-                    e.printStackTrace();
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                //readConfigFile();
 
                 //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
                 // построим экземпляр класса
                 try {
+                    FilePropertiesManager fp = new FilePropertiesManager();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    System.out.println(new FilePropertiesManager().getNameF());
                     Player player = new Player(new FilePropertiesManager().getNameF(), 10, 10, 10, 10, 10, 10);
-                    Band band = new Band(player);
+                    Band band;
+                    band = new Band(player);
+                    // получаем параметры персонажа
+                    String name = band.player.getName();
+                    int dexterity = band.player.getDexterity();
+                    int health = band.player.getHealth();
+                    int exp = band.player.getExperience();
+                    long gold = band.player.getGold();
+                    int strength = band.player.getStrength();
+                    int level = band.player.getLevel();
+
+                    //System.out.printf("Name: %s  Age: %d  Dexterity: %.2f \n", name, dexterity, health, expe);
+                    //System.out.printf("Name: %s  Dexterity: %d  Health: %d  Experience: %d  Gold: %d  Strength: %d  Level: %d  \n", name, dexterity, health, exp, gold, strength, level);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                // получаем параметры персонажа
-                String name = band.player.getName();
-                int dexterity = band.player.getDexterity();
-                int health = band.player.getHealth();
-                int exp = band.player.getExperience();
-                long gold = band.player.getGold();
-                int strength = band.player.getStrength();
-                int level = band.player.getLevel();
-                //System.out.printf("Name: %s  Age: %d  Dexterity: %.2f \n", name, dexterity, health, expe);
-                System.out.printf("Name: %s  Dexterity: %d  Health: %d  Experience: %d  Gold: %d  Strength: %d  Level: %d  \n", name, dexterity, health, exp, gold, strength, level);
                 break;
             default:
                 throw new IllegalStateException("Неожиданное значение: " + num);
@@ -88,5 +85,20 @@ public class GameApp {
             e.printStackTrace();
         }
         return content;
+    }
+
+    public static String readConfigFile() {
+        try {
+            return new FilePropertiesManager().getNameF();
+        } catch (MissingFormatArgumentException e) {
+            e.printStackTrace();
+        } catch (UnknownFormatConversionException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Ошибка чтения файла конфигурации персонажа";
     }
 }
