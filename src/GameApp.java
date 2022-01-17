@@ -106,7 +106,22 @@ public class GameApp {
 
                 case 2:
                     System.out.println("Начинаем битву...");
+                    System.out.println("Герой:");
+                    // вывод отдельных параметров конфигурации персонажа
                     // прочитаем файл конфигурации созданного персонажа
+                    ReadProps rp2 = new ReadProps();
+                    System.out.println("Имя: " + rp2.readProps("user.name"));
+                    System.out.println("Ловкость: " + rp2.readProps("user.dexterity"));
+                    System.out.println("Здоровье: " + rp2.readProps("user.health"));
+                    System.out.println("Опыт: " + rp2.readProps("user.experience"));
+                    System.out.println("Золото: " + rp2.readProps("user.gold"));
+                    System.out.println("Сила: " + rp2.readProps("user.strength"));
+                    System.out.println("Уровень: " + rp2.readProps("user.level"));
+
+                    System.out.println("Монстр 1: ");
+
+                    System.out.println("Торговец: ");
+
                     //readConfigFile();
 
                     //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
