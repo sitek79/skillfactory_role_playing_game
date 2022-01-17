@@ -52,10 +52,10 @@ public class GameApp {
                     int experienceConfig = inConfig.nextInt();
                     CHARACTER_CONFIGURATION_POINTS = CHARACTER_CONFIGURATION_POINTS - experienceConfig;
                     System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, CHARACTER_CONFIGURATION_POINTS);
-                    System.out.print("Введите начальную крепость героя: ");
+                    System.out.print("Введите начальную силу героя: ");
                     int strengthConfig = inConfig.nextInt();
                     CHARACTER_CONFIGURATION_POINTS = CHARACTER_CONFIGURATION_POINTS - strengthConfig;
-                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Крепость: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, strengthConfig,CHARACTER_CONFIGURATION_POINTS);
+                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Сила: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, strengthConfig,CHARACTER_CONFIGURATION_POINTS);
                     //inConfig.close();
 
                     // подготовка строк
@@ -118,7 +118,7 @@ public class GameApp {
                         e.printStackTrace();
                     }
                     try {
-                        //System.out.println(new FilePropertiesManager().getNameF());
+                        System.out.println(new FilePropertiesManager().getNameF());
                         Player player = new Player(new FilePropertiesManager().getNameF(), 10, 10, 10, 10, 10, 10);
                         Band band;
                         band = new Band(player);
@@ -132,7 +132,7 @@ public class GameApp {
                         int level = band.player.getLevel();
 
                         //System.out.printf("Name: %s  Age: %d  Dexterity: %.2f \n", name, dexterity, health, exp);
-                        System.out.printf("Имя: %s  Ловкость: %d  Здоровье: %d  Опыт: %d  Золото: %d  Крепость: %d  Уровень: %d  \n", name, dexterity, health, exp, gold, strength, level);
+                        System.out.printf("Имя: %s  Ловкость: %d  Здоровье: %d  Опыт: %d  Золото: %d  Сила: %d  Уровень: %d  \n", name, dexterity, health, exp, gold, strength, level);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
