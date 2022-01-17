@@ -17,17 +17,18 @@ public class FilePropertiesManager {
     //private static int[] SOME_INT_ARRAY;
     
     public FilePropertiesManager() throws IOException {
-        props.load(new FileInputStream(new File("src/save_game.cfg")));
+        //props.load(new FileInputStream(new File("src/save_game.cfg")));
+        props.load(new FileInputStream(new File("src/app.properties")));
 
         //name = Integer.valueOf(props.getProperty("SOME_INT_VALUE", "nnm"));
-        this.name = String.valueOf(props.getProperty("name", "nnm"));
+        this.name = String.valueOf(props.getProperty("user.name", "nnm"));
         //dexterity = props.getProperty("SOME_STRING_VALUE");
-        this.dexterity = Integer.parseInt(props.getProperty("dexterity"));
-        this.health = Integer.parseInt(props.getProperty("health"));
-        this.experience = Integer.parseInt(props.getProperty("experience"));
-        gold = Long.parseLong(props.getProperty("gold"));
-        this.strength = Integer.parseInt(props.getProperty("strength"));
-        this.level = Integer.parseInt(props.getProperty("level"));
+        this.dexterity = Integer.parseInt(props.getProperty("user.dexterity"));
+        this.health = Integer.parseInt(props.getProperty("user.health"));
+        this.experience = Integer.parseInt(props.getProperty("user.experience"));
+        gold = Long.parseLong(props.getProperty("user.gold"));
+        this.strength = Integer.parseInt(props.getProperty("user.strength"));
+        this.level = Integer.parseInt(props.getProperty("user.level"));
         //SOME_DOUBLE_VALUE = Double.valueOf(props.getProperty("SOME_DOUBLE_VALUE", "1.0"));
 
         // Предположим, что в настройках находится список целых через точку с запятой
