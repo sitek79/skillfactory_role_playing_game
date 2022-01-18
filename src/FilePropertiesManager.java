@@ -43,6 +43,11 @@ public class FilePropertiesManager {
         name = String.valueOf(props.getProperty("user.name"));
         return name;
     }
+
+    public String getDexterityF() {
+        name = String.valueOf(props.getProperty("user.dexterity"));
+        return name;
+    }
     
     public void getAllProps() {
         System.out.println(name + dexterity + health + experience);

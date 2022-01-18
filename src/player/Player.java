@@ -10,9 +10,9 @@ public class Player {
 
     private int level = 1;
 
-    public Player(String name, int dexterity, int health, int experience, long gold, int strength, int level) {
+    public Player(String name, String dexterity, int health, int experience, long gold, int strength, int level) {
         this.name = name;
-        this.dexterity=dexterity;
+        this.dexterity= Integer.parseInt(dexterity);
         this.health=health;
         this.experience=experience;
         this.gold=gold;

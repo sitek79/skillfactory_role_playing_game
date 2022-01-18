@@ -137,7 +137,7 @@ public class GameApp {
                     }
                     try {
                         System.out.println(new FilePropertiesManager().getNameF());
-                        Player player = new Player(new FilePropertiesManager().getNameF(), 10, 10, 10, 10, 10, 10);
+                        Player player = new Player(new FilePropertiesManager().getNameF(), new FilePropertiesManager().getDexterityF(), 10, 10, 10, 10, 10);
                         Band band;
                         band = new Band(player);
                         // получаем параметры персонажа
