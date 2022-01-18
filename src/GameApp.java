@@ -1,5 +1,6 @@
 import player.Band;
 import player.Player;
+import world.World;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,11 +13,14 @@ import java.util.stream.Stream;
 public class GameApp {
     static boolean play = true;
     static String filePathToMenu = "src/startup_menu.txt";
-    static int CHARACTER_CONFIGURATION_POINTS = 60;
+    //static int CHARACTER_CONFIGURATION_POINTS = 60;
     static int user_level = 1;
     static int gold = 100;
 
     public static void main(String[] args) {
+        World wrl = new World();
+        //new World();
+
         while (play) {
             // бесконечный цикл
         //GameApp ga = new GameApp();
@@ -36,26 +40,26 @@ public class GameApp {
                     System.out.println("1");
                     // ввод с консоли
                     Scanner inConfig = new Scanner(System.in);
-                    System.out.println("Всего очков для распределения параметров: " + CHARACTER_CONFIGURATION_POINTS);
+                    System.out.println("Всего очков для распределения параметров: " + wrl.CHARACTER_CONFIGURATION_POINTS);
                     System.out.print("Введите имя: ");
                     String nameConfig = inConfig.nextLine();
                     //System.out.printf("Your name: %s \n", nameConfig);
                     System.out.print("Введите ловкость: ");
                     int dexterityConfig = inConfig.nextInt();
-                    CHARACTER_CONFIGURATION_POINTS = CHARACTER_CONFIGURATION_POINTS - dexterityConfig;
-                    System.out.printf("Ваша ловкость: %d Осталось очков: %d\n", dexterityConfig, CHARACTER_CONFIGURATION_POINTS);
+                    wrl.CHARACTER_CONFIGURATION_POINTS = wrl.CHARACTER_CONFIGURATION_POINTS - dexterityConfig;
+                    System.out.printf("Ваша ловкость: %d Осталось очков: %d\n", dexterityConfig, wrl.CHARACTER_CONFIGURATION_POINTS);
                     System.out.print("Введите здоровье: ");
                     int healthConfig = inConfig.nextInt();
-                    CHARACTER_CONFIGURATION_POINTS = CHARACTER_CONFIGURATION_POINTS - healthConfig;
-                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Осталось очков: %d\n", dexterityConfig, healthConfig, CHARACTER_CONFIGURATION_POINTS);
+                    wrl.CHARACTER_CONFIGURATION_POINTS = wrl.CHARACTER_CONFIGURATION_POINTS - healthConfig;
+                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Осталось очков: %d\n", dexterityConfig, healthConfig, wrl.CHARACTER_CONFIGURATION_POINTS);
                     System.out.print("Введите опыт: ");
                     int experienceConfig = inConfig.nextInt();
-                    CHARACTER_CONFIGURATION_POINTS = CHARACTER_CONFIGURATION_POINTS - experienceConfig;
-                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, CHARACTER_CONFIGURATION_POINTS);
+                    wrl.CHARACTER_CONFIGURATION_POINTS = wrl.CHARACTER_CONFIGURATION_POINTS - experienceConfig;
+                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, wrl.CHARACTER_CONFIGURATION_POINTS);
                     System.out.print("Введите начальную силу героя: ");
                     int strengthConfig = inConfig.nextInt();
-                    CHARACTER_CONFIGURATION_POINTS = CHARACTER_CONFIGURATION_POINTS - strengthConfig;
-                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Сила: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, strengthConfig,CHARACTER_CONFIGURATION_POINTS);
+                    wrl.CHARACTER_CONFIGURATION_POINTS = wrl.CHARACTER_CONFIGURATION_POINTS - strengthConfig;
+                    System.out.printf("Ваша ловкость: %d Ваше здоровье: %d Опыт: %d Сила: %d Осталось очков: %d\n", dexterityConfig, healthConfig, experienceConfig, strengthConfig,wrl.CHARACTER_CONFIGURATION_POINTS);
                     //inConfig.close();
 
                     // подготовка строк
@@ -123,9 +127,8 @@ public class GameApp {
                     System.out.println("Торговец: ");
 
                     //readConfigFile();
-
-                    //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
                     // построим экземпляр класса
+                    //Player player = new Player("Dude", 10, 10, 10, 10, 10, 10);
                     try {
                         FilePropertiesManager fp = new FilePropertiesManager();
 

@@ -21,7 +21,7 @@ public class FilePropertiesManager {
         props.load(new FileInputStream(new File("src/app.properties")));
 
         //name = Integer.valueOf(props.getProperty("SOME_INT_VALUE", "nnm"));
-        this.name = String.valueOf(props.getProperty("user.name", "nnm"));
+        this.name = String.valueOf(props.getProperty("user.name"));
         //dexterity = props.getProperty("SOME_STRING_VALUE");
         this.dexterity = Integer.parseInt(props.getProperty("user.dexterity"));
         this.health = Integer.parseInt(props.getProperty("user.health"));
@@ -40,7 +40,7 @@ public class FilePropertiesManager {
     }
 
     public String getNameF() {
-        name = String.valueOf(props.getProperty("name", "nnm"));
+        name = String.valueOf(props.getProperty("user.name"));
         return name;
     }
     
